@@ -16,6 +16,7 @@ return new class extends Migration
             $table->date('date');
             $table->foreignId('city_id')->constrained();
             $table->foreignId('employee_id')->constrained();
+            $table->boolean('valide');
             $table->timestamps();
         });
     }
