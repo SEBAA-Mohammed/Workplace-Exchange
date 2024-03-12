@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OccupationRequest;
 use App\Models\Occupation;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class OccupationController extends Controller
      */
     public function index()
     {
-        //
+        return view('occupations.index', ['occupations' => Occupation::all()]);
     }
 
     /**
@@ -20,15 +21,16 @@ class OccupationController extends Controller
      */
     public function create()
     {
-        //
+        return view('occupations.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(OccupationRequest $request)
     {
-        //
+        Occupation::create($request->all());
+        return redirect()->route(('occupations.index'));
     }
 
     /**
@@ -44,15 +46,16 @@ class OccupationController extends Controller
      */
     public function edit(Occupation $occupation)
     {
-        //
+        return view('occupations.edit', ['occupation' => $occupation]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Occupation $occupation)
+    public function update(OccupationRequest $request, Occupation $occupation)
     {
-        //
+        $occupation->update($request->all());
+        return redirect()->route('occupations.index');
     }
 
     /**
@@ -60,6 +63,7 @@ class OccupationController extends Controller
      */
     public function destroy(Occupation $occupation)
     {
-        //
+        $occupation->delete();
+        return redirect()->route('occupations.index');
     }
 }

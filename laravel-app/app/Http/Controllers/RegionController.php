@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegionRequest;
 use App\Models\Region;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class RegionController extends Controller
      */
     public function index()
     {
-        //
+        return view('regions.index', ['regions' => Region::all()]);
     }
 
     /**
@@ -20,15 +21,16 @@ class RegionController extends Controller
      */
     public function create()
     {
-        //
+        return view('regions.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RegionRequest $request)
     {
-        //
+        Region::create($request->all());
+        return redirect()->route(('regions.index'));
     }
 
     /**
@@ -44,15 +46,16 @@ class RegionController extends Controller
      */
     public function edit(Region $region)
     {
-        //
+        return view('regions.edit', ['region' => $region]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Region $region)
+    public function update(RegionRequest $request, Region $region)
     {
-        //
+        $region->update($request->all());
+        return redirect()->route('regions.index');
     }
 
     /**
@@ -60,6 +63,7 @@ class RegionController extends Controller
      */
     public function destroy(Region $region)
     {
-        //
+        $region->delete();
+        return redirect()->route('regions.index');
     }
 }

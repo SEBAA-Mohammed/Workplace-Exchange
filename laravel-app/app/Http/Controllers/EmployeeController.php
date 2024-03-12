@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EmployeeRequest;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        return view('employees.index', ['employees' => Employee::all()]);
     }
 
     /**
@@ -20,15 +21,16 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('employees.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     {
-        //
+        Employee::create($request->all());
+        return redirect()->route(('employees.index'));
     }
 
     /**
@@ -44,15 +46,16 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+        return view('employees.edit', ['employee' => $employee]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Employee $employee)
+    public function update(EmployeeRequest $request, Employee $employee)
     {
-        //
+        $employee->update($request->all());
+        return redirect()->route('employees.index');
     }
 
     /**
@@ -60,6 +63,7 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        //
+        $employee->delete();
+        return redirect()->route('employees.index');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ExchangeRequest;
 use App\Models\Exchange;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class ExchangeController extends Controller
      */
     public function index()
     {
-        //
+        return view('exchanges.index', ['exchanges' => Exchange::all()]);
     }
 
     /**
@@ -20,15 +21,16 @@ class ExchangeController extends Controller
      */
     public function create()
     {
-        //
+        return view('exchanges.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ExchangeRequest $request)
     {
-        //
+        Exchange::create($request->all());
+        return redirect()->route(('exchanges.index'));
     }
 
     /**
@@ -44,15 +46,16 @@ class ExchangeController extends Controller
      */
     public function edit(Exchange $exchange)
     {
-        //
+        return view('exchanges.edit', ['exchange' => $exchange]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Exchange $exchange)
+    public function update(ExchangeRequest $request, Exchange $exchange)
     {
-        //
+        $exchange->update($request->all());
+        return redirect()->route('exchanges.index');
     }
 
     /**
@@ -60,6 +63,7 @@ class ExchangeController extends Controller
      */
     public function destroy(Exchange $exchange)
     {
-        //
+        $exchange->delete();
+        return redirect()->route('exchanges.index');
     }
 }
