@@ -12,7 +12,7 @@ class City extends Model
     use HasFactory;
 
     protected $fillable = [
-        'ville',
+        'city',
         'region_id'
     ];
 

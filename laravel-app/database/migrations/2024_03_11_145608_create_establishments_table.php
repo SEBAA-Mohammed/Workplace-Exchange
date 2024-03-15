@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('adresse');
             $table->string('tel');
             $table->string('fax');
-            $table->foreignId('city_id')->constrained();
+            $table->foreignId('city_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

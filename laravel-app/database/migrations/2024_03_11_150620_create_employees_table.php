@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('tel');
             $table->string('email');
             $table->string('password');
-            $table->foreignId('establishment_id')->constrained();
-            $table->foreignId('occupation_id')->constrained();
+            $table->foreignId('establishment_id')->constrained()->onDelete('cascade');
+            $table->foreignId('occupation_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -1,0 +1,14 @@
+[
+  { "id": 1, "region": "BENI MELLAL-KHENIFRA" },
+  { "id": 2, "region": "CASABLANCA-SETTAT" },
+  { "id": 3, "region": "DRAA-TAFILALET" },
+  { "id": 4, "region": "ED DAKHLA-OUED ED DAHAB" },
+  { "id": 5, "region": "FES-MEKNES" },
+  { "id": 6, "region": "GUELMIME-OUED NOUN" },
+  { "id": 7, "region": "LAAYOUNE-SAGUIA AL HAMRA" },
+  { "id": 8, "region": "MARRAKECH-SAFI" },
+  { "id": 9, "region": "ORIENTAL ET RIF" },
+  { "id": 10, "region": "RABAT-SALE-KENITRA" },
+  { "id": 11, "region": "SOUSS-MASSA" },
+  { "id": 12, "region": "TANGER-TETOUAN-AL HOCEIMA" }
+]

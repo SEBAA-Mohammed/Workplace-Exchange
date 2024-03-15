@@ -13,7 +13,8 @@ class CityController extends Controller
      */
     public function index()
     {
-        return view('cities.index', ['cities' => City::all()]);
+        $cities = City::with('region')->get();
+        return view('cities.index', ['cities' => $cities]);
     }
 
     /**

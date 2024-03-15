@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('exchanges', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->foreignId('city_id')->constrained();
-            $table->foreignId('employee_id')->constrained();
+            $table->foreignId('city_id')->constrained()->onDelete('cascade');
+            $table->foreignId('employee_id')->constrained()->onDelete('cascade');
             $table->boolean('valide');
             $table->timestamps();
         });
