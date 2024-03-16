@@ -1,11 +1,11 @@
 @extends('layouts.master')
 @section('page')
-    Cities
+    Regions
 @endsection
 @section('content')
     @include('components.table', [
-        'table' => 'cities',
-        'columns' => ['id', 'city', 'region'],
-        'collection' => $cities,
+        'table' => 'regions',
+        'columns' => ['id', 'region'],
+        'collection' => $regions,
     ])
 @endsection

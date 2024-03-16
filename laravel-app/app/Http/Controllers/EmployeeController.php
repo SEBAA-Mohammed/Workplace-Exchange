@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EmployeeRequest;
 use App\Models\Employee;
-use Illuminate\Http\Request;
+use App\Models\Establishment;
+use App\Models\Occupation;
 
 class EmployeeController extends Controller
 {
@@ -13,7 +14,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('employees.index', ['employees' => Employee::all()]);
+        $employees = Employee::with('occupation', 'establishment')->get();
+        return view('employees.index', ['employees' => $employees]);
     }
 
     /**
@@ -21,7 +23,10 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employees.create');
+        $establishments = Establishment::all();
+        $occupations = Occupation::all();
+
+        return view('employees.create', compact('establishments', 'occupations'));
     }
 
     /**

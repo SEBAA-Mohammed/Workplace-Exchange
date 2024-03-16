@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link text-center">
         <span class=" brand-text font-weight-light">Worckplace-Exchnange</span>
@@ -24,7 +24,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/cities" class="nav-link">
                         <i class="nav-icon fas fa-city"></i>
                         <p class="mx-2">
                             Cities
@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/regions" class="nav-link">
                         <i class="nav-icon fas fa-chart-area"></i>
                         <p class="mx-2">
                             Regions
@@ -40,7 +40,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/establishments" class="nav-link">
                         <i class="nav-icon fas fa-building"></i>
                         <p class="mx-2">
                             Establishements
@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/employees" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p class="mx-2">
                             Employees
@@ -56,7 +56,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/occupations" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p class="mx-2">
                             Occupations
@@ -64,7 +64,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/exchanges" class="nav-link">
                         <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon fas "
                             viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                             <path fill="#c2c7d0"

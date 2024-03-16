@@ -17,13 +17,13 @@ class Exchange extends Model
         'valide',
     ];
 
+    public function city(): BelongsTo
+    {
+        return $this->belongsTo(City::class);
+    }
+
     public function employee(): BelongsTo
     {
         return $this->belongsTo(Employee::class);
-    }
-
-    public function establishment(): BelongsTo
-    {
-        return $this->belongsTo(City::class);
     }
 }

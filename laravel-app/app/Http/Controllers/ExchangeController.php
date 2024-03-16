@@ -13,7 +13,8 @@ class ExchangeController extends Controller
      */
     public function index()
     {
-        return view('exchanges.index', ['exchanges' => Exchange::all()]);
+        $exchanges = Exchange::with('city', 'employee')->get();
+        return view('exchanges.index', ['exchanges' => $exchanges]);
     }
 
     /**

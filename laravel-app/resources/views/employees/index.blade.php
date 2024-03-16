@@ -1,0 +1,11 @@
+@extends('layouts.master')
+@section('page')
+    Employees
+@endsection
+@section('content')
+    @include('components.table', [
+        'table' => 'employees',
+        'columns' => ['id', 'nom', 'prenom', 'matricule', 'establishment', 'occupation'],
+        'collection' => $employees,
+    ])
+@endsection

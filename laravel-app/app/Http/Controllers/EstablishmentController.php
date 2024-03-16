@@ -13,7 +13,8 @@ class EstablishmentController extends Controller
      */
     public function index()
     {
-        return view('establishments.index', ['establishments' => Establishment::all()]);
+        $establishments = Establishment::with('city')->get();
+        return view('establishments.index', ['establishments' => $establishments]);
     }
 
     /**
