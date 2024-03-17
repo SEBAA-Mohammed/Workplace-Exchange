@@ -15,48 +15,73 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form>
+                        <form action="{{ route('employees.store') }}" method="post">
+                            @csrf
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nom :</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="nom"
                                         placeholder="Entrer votre nom">
                                 </div>
+                                @error('nom')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Prenom :</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="prenom"
                                         placeholder="Entrer votre prenom">
                                 </div>
+                                @error('prenom')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Matricule :</label>
                                     <input type="number" class="form-control" id="exampleInputEmail1" name="matricule"
                                         placeholder="Entrer votre matricule">
                                 </div>
+                                @error('matricule')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Grade :</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="grade"
                                         placeholder="Entrer votre grade">
                                 </div>
+                                @error('grade')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Date de naissance :</label>
                                     <input type="date" class="form-control" id="exampleInputEmail1" name="date_naissance"
                                         placeholder="Entrer votre date de naissance">
                                 </div>
+                                @error('date_naissance')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Date de recrutement :</label>
                                     <input type="date" class="form-control" id="exampleInputEmail1"
                                         name="date_recrutement" placeholder="Entrer votre date de recrutement">
                                 </div>
+                                @error('date_recrutement')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Poste :</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="poste"
                                         placeholder="Entrer votre poste">
                                 </div>
+                                @error('poste')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tel :</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="tel"
                                         placeholder="Entrer votre telephone">
                                 </div>
+                                @error('tel')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
                                     <label>Metier :</label>
                                     <select class="form-control select2" style="width: 100%;" name="occupation_id">
@@ -65,6 +90,9 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                @error('occupation_id')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
                                     <label>Etablissement :</label>
                                     <select class="form-control select2" style="width: 100%;" name="establishment_id">
@@ -74,16 +102,25 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                @error('establishment_id')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email adresse :</label>
                                     <input type="email" class="form-control" id="exampleInputEmail1"
-                                        placeholder="Entrer votre email">
+                                        placeholder="Entrer votre email" name="email">
                                 </div>
+                                @error('email')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
                                     <input type="password" class="form-control" id="exampleInputPassword1"
-                                        placeholder="Password">
+                                        placeholder="Password" name="password">
                                 </div>
+                                @error('password')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
                                     <label for="exampleInputFile">Photo :</label>
                                     <div class="input-group">
@@ -97,6 +134,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                @error('photo')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-center">
