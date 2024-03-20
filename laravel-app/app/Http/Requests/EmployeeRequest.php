@@ -25,7 +25,7 @@ class EmployeeRequest extends FormRequest
             'matricule' => 'required',
             'nom' => 'required',
             'prenom' => 'required',
-            'photo' => 'required',
+            'photo' => 'image|mimes:png,jpg,jpeg,svg|max:10240',
             'grade' => 'required',
             'date_naissance' => 'required',
             'date_recrutement' => 'required',

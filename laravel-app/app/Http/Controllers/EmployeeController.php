@@ -6,6 +6,7 @@ use App\Http\Requests\EmployeeRequest;
 use App\Models\Employee;
 use App\Models\Establishment;
 use App\Models\Occupation;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
@@ -34,7 +35,11 @@ class EmployeeController extends Controller
      */
     public function store(EmployeeRequest $request)
     {
-        Employee::create($request->all());
+        $formFields = $request->validated();
+        $formFields['password'] = Hash::make($request->password);
+        $this->uploadImage($request, $formFields);
+
+        Employee::create($formFields);
         return redirect()->route(('employees.index'));
     }
 
@@ -70,5 +75,13 @@ class EmployeeController extends Controller
     {
         $employee->delete();
         return redirect()->route('employees.index');
+    }
+
+    private function uploadImage(EmployeeRequest $request, array &$formFields)
+    {
+        unset($formFields['photo']);
+        if ($request->hasFile('photo')) {
+            $formFields['photo'] = $request->file('photo')->store('employees_photos', 'public');
+        }
     }
 }
