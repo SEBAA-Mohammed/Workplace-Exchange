@@ -16,7 +16,7 @@ return new class extends Migration
             $table->date('date');
             $table->foreignId('city_id')->constrained()->onDelete('cascade');
             $table->foreignId('employee_id')->constrained()->onDelete('cascade');
-            $table->boolean('valide');
+            $table->boolean('valide')->default(0);
             $table->timestamps();
         });
     }

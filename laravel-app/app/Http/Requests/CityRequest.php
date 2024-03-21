@@ -22,7 +22,7 @@ class CityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'ville' => 'required',
+            'city' => 'required',
             'region_id' => 'required'
         ];
     }

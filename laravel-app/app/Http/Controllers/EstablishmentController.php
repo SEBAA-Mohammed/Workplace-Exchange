@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EstablishmentRequest;
+use App\Models\City;
 use App\Models\Establishment;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class EstablishmentController extends Controller
      */
     public function create()
     {
-        return view('establishments.create');
+        $cities = City::all();
+        return view('establishments.create', compact('cities'));
     }
 
     /**
@@ -47,7 +49,8 @@ class EstablishmentController extends Controller
      */
     public function edit(Establishment $establishment)
     {
-        return view('establishments.edit', ['establishment' => $establishment]);
+        $cities = City::all();
+        return view('establishments.edit', compact('establishment','cities'));
     }
 
     /**

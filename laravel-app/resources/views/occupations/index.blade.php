@@ -5,6 +5,7 @@
 @section('content')
     @include('components.table', [
         'table' => 'occupations',
+        'tableS' => 'Occupation',
         'columns' => ['id', 'occupation'],
         'collection' => $occupations,
     ])

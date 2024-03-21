@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CityRequest;
 use App\Models\City;
+use App\Models\Region;
 use Illuminate\Http\Request;
 
 class CityController extends Controller
@@ -22,7 +23,8 @@ class CityController extends Controller
      */
     public function create()
     {
-        return view('cities.create');
+        $regions = Region::all();
+        return view('cities.create', compact('regions'));
     }
 
     /**
@@ -47,7 +49,8 @@ class CityController extends Controller
      */
     public function edit(City $city)
     {
-        return view('cities.edit', ['city' => $city]);
+        $regions = Region::all();
+        return view('cities.edit', compact('city', 'regions'));
     }
 
     /**

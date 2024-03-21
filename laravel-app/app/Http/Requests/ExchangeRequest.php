@@ -25,7 +25,7 @@ class ExchangeRequest extends FormRequest
             'date' => 'required',
             'city_id' => 'required',
             'employee_id' => 'required',
-            'valide' => 'required',
+            // 'valide' => 'required',
         ];
     }
 }

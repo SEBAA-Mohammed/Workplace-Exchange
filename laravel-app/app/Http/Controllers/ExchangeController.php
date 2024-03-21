@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ExchangeRequest;
+use App\Models\City;
+use App\Models\Employee;
 use App\Models\Exchange;
 use Illuminate\Http\Request;
 
@@ -22,7 +24,9 @@ class ExchangeController extends Controller
      */
     public function create()
     {
-        return view('exchanges.create');
+        $cities = City::all();
+        $employees = Employee::all();
+        return view('exchanges.create', compact('cities', 'employees'));
     }
 
     /**
@@ -47,7 +51,9 @@ class ExchangeController extends Controller
      */
     public function edit(Exchange $exchange)
     {
-        return view('exchanges.edit', ['exchange' => $exchange]);
+        $cities = City::all();
+        $employees = Employee::all();
+        return view('exchanges.edit', compact('exchange', 'cities', 'employees'));
     }
 
     /**
@@ -55,6 +61,8 @@ class ExchangeController extends Controller
      */
     public function update(ExchangeRequest $request, Exchange $exchange)
     {
+        $valide = $request->has('valide') ? 1 : 0;
+        $request['valide'] = $valide;
         $exchange->update($request->all());
         return redirect()->route('exchanges.index');
     }
